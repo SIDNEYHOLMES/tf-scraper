@@ -2,10 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 
 request_results = requests.get('https://wiki.teamfortress.com/wiki/Weapons')
+wiki_page = BeautifulSoup(request_results.text, "html.parser").find('table', class_='wikitable grid').find_all('a', title=True)
 
-wiki_page = BeautifulSoup(request_results.text, "html.parser")
+print(wiki_page)
 
-# print(wiki_page.prettify)
-weapon_name = wiki_page
-
-print(wiki_page.find('table', class_='wikitable grid'))
+for a_tag in wiki_page:
+    title_data = a_tag['title']
+    print(title_data)
