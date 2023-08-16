@@ -41,4 +41,4 @@ for table in all_tables:
 
 # Print the weapon objects list
 for weapon in weapon_objects:
-    print(weapon)
+    print(weapon, ',')
